@@ -5,6 +5,7 @@ from rule import SimpleRule
 
 ### Player class
 class Player:
+    ### can use diff rules, default is the simple rule defined in Rule class
     def __init__(self, name, rule=SimpleRule):
         self.name = name
         self.rule = rule()
