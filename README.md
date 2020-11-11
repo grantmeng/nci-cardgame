@@ -1,6 +1,6 @@
 ## Welcome to "Card Game"
 
-Class List
+Class List 
 Card:   defined in card.py
 Deck:   defined in deck.py
 Player: defined in player.py
