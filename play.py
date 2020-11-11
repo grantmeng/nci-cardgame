@@ -6,11 +6,11 @@ def checkWinner(p1, p2):
     for player in (p1, p2):
         print('Name: {}, Score: {}, Cards: {}'.format(player.name, player.getScore(), player.showHandByColor()))
     if p1.getScore() > p2.getScore():
-        print('The winner is: {}'.format(p1.name))
+        return 'The winner is: {}'.format(p1.name)
     elif p1.getScore() < p2.getScore():
-        print('The winner is: {}'.format(p2.name))
+        return 'The winner is: {}'.format(p2.name)
     else:
-        print('Both players win!')
+        return 'Both players win!'
 
 ### create a new deck and shuffle it
 deck = Deck()
@@ -34,6 +34,6 @@ for _ in range(3):
     p2.draw(deck)
 
 ### check the winner
-checkWinner(p1, p2)
+print(checkWinner(p1, p2))
 
 
