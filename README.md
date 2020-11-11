@@ -8,6 +8,6 @@ Rule:   defined in rule.py
 
 Main script: play.py
 
-Testing:
-Run pytest or py.test
+Testing:  
+Run pytest or py.test  
 (Note: As I got the coding challenge done in just two hours, testing cases covered some not all,  just for demo purpose) 
