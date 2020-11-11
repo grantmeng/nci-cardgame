@@ -35,7 +35,7 @@ class Player:
         cards = collections.defaultdict(list)
         for card in self.hand:
             cards[card.color].append(card.value)
-        print(json.dumps(cards))
+        return json.dumps(cards)
 
     def getScore(self):
         return self.rule.getScore(self.hand)
@@ -49,5 +49,4 @@ if __name__ == "__main__":
         p1.draw(deck)
         p2.draw(deck)
     for player in (p1, p2):
-        print('name: {}, score: {}'.format(player.name, player.getScore()))
-        player.showHandByColor()
+        print('Name: {}, Score: {}, Cards: {}'.format(player.name, player.getScore(), player.showHandByColor()))
