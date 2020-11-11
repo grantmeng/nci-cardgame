@@ -4,8 +4,7 @@ from deck import Deck
 
 def checkWinner(p1, p2):
     for player in (p1, p2):
-        print('Name: {}, score: {}'.format(player.name, player.getScore()))
-        player.showHandByColor()
+        print('Name: {}, Score: {}, Cards: {}'.format(player.name, player.getScore(), player.showHandByColor()))
     if p1.getScore() > p2.getScore():
         print('The winner is: {}'.format(p1.name))
     elif p1.getScore() < p2.getScore():
@@ -23,7 +22,7 @@ for _ in range(5):
     cards.append(deck.draw())
 colors = ['yellow', 'green', 'red']
 sortedCards = deck.sortCards(cards, colors)
-print(sortedCards)
+print('Sorted cards: {}'.format(sortedCards))
 
 ### create two players
 p1 = Player('Player1')
