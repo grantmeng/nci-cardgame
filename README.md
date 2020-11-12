@@ -8,7 +8,8 @@ Deck:   consists of list of cards, with draw(), shuffle(), etc methods, defined 
 Player: with name and rule (default is SimpleRule) attribute, defined in player.py  
 Rule:   consists of different rules for score calculation, defined in rule.py  
 
-Main script: the main script to start the game, run as 'python play.py' or 'python3 play.py' (depends on your Python version)  
+Main script: play.py  
+The main script to start the game, run as 'python play.py' or 'python3 play.py' (depends on your Python version)  
 
 Unit testing:  
 Run pytest or py.test  
