@@ -2,7 +2,7 @@
 
 It's a simple card game with a few players. Each card has a color (eg. red, yellow or green) and value number. Players draw some cards by turn. Whoever has the high score wins the game. The point is calculated by color point * number in the card (color point example, red=3, yellow=2, green=1) .  
 
-Classes defined
+Classes defined  
 Card:   with color and value (number) attributes, defined in card.py  
 Deck:   consists of list of cards, with draw(), shuffle(), etc methods, defined in deck.py  
 Player: with name and rule (default is SimpleRule) attribute, defined in player.py  
