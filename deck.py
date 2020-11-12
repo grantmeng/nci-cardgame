@@ -2,23 +2,22 @@ import random
 import collections
 import json
 from card import Card
+from config import MAX_CARD_VALUE, COLORS
 
 ### Deck class
 class Deck:
-    # card's value range, here assume from 0 to 9
-    MAX_VALUE = 9
-
     def __init__(self):
-        self.cards, self.done = [], []
-        for color in Card.COLORS:
-            for value in range(Deck.MAX_VALUE+1):
+        self.cards = []
+        self.done = [] # store cards drawed out already
+        for color in COLORS:
+            for value in range(MAX_CARD_VALUE+1):
                 self.cards.append(Card(value, color))
 
     def shuffle(self):
         self.cards += self.done
         self.done = []
         for i in range(len(self.cards)):
-            r = random.randint(0, len(Card.COLORS) * (Deck.MAX_VALUE+1) - 1)
+            r = random.randint(0, len(COLORS) * (MAX_CARD_VALUE+1) - 1)
             self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
 
     def draw(self):

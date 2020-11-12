@@ -1,3 +1,4 @@
+from config import MAX_CARD_VALUE, COLORS
 from card import Card
 from deck import Deck
 from player import Player
@@ -14,12 +15,16 @@ def test_deck():
     colors = collections.defaultdict(list)
     for card in deck.cards:
         colors[card.color].append(card.value)
-    assert sorted(colors['red']) == list(range(10))
-    assert sorted(colors['green']) == list(range(10))
-    assert sorted(colors['yellow']) == list(range(10))
+    for color in COLORS:
+        assert sorted(colors[color]) == list(range(MAX_CARD_VALUE+1))
 
 def test_player():
     p = Player('NCI')
     assert p.name == 'NCI'
     assert isinstance(p.rule, SimpleRule)
     assert not p.hand
+
+def test_rule():
+    cards = [Card(2, 'red'), Card(1, 'green')]
+    r = SimpleRule()
+    assert  2 * COLORS['red'] + 1 * COLORS['green'] == r.getScore(cards)

@@ -1,16 +1,12 @@
 import json
+from config import NUM_OF_PLAYER, NUM_OF_CARD
 from player import Player
 from deck import Deck
 
-def checkWinner(p1, p2):
-    for player in (p1, p2):
-        print('Name: {}, Score: {}, Cards: {}'.format(player.name, player.getScore(), player.showHandByColor()))
-    if p1.getScore() > p2.getScore():
-        return 'The winner is: {}'.format(p1.name)
-    elif p1.getScore() < p2.getScore():
-        return 'The winner is: {}'.format(p2.name)
-    else:
-        return 'Both players win!'
+def checkWinner(players):
+    winner_score = max(player.getScore() for player in players)
+    winners = [player.name for player in players if player.getScore() == winner_score]
+    return winners
 
 ### create a new deck and shuffle it
 deck = Deck()
@@ -20,20 +16,28 @@ deck.shuffle()
 cards = []
 for _ in range(5):
     cards.append(deck.draw())
+print('Draw 5 cards: {}'.format(','.join('({} {})'.format(card.color, card.value) for card in cards)))
 colors = ['yellow', 'green', 'red']
+print('Color order: {}'.format(colors))
 sortedCards = deck.sortCards(cards, colors)
 print('Sorted cards: {}'.format(sortedCards))
+print()
 
-### create two players
-p1 = Player('Player1')
-p2 = Player('Player2')
+### create players
+players = []
+for i in range(NUM_OF_PLAYER):
+    player = Player('Player' + str(i))
+    players.append(player)
 
-### each player draws 3 cards by turn
-for _ in range(3):
-    p1.draw(deck)
-    p2.draw(deck)
+### each player draws card by turn
+for _ in range(NUM_OF_CARD):
+    for player in players:
+        player.draw(deck)
+
+print('After players drawing card:')
+for player in players:
+    print(player)
 
 ### check the winner
-print(checkWinner(p1, p2))
-
-
+winners = checkWinner(players)
+print('Winners: {}'.format(winners))

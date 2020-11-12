@@ -25,12 +25,6 @@ class Player:
             cards.append('{} {}'.format(card.color, card.value))
         return ','.join(cards)
 
-    def getHandByColor(self):
-        cards = collections.defaultdict(list)
-        for card in self.hand:
-            cards[card.color].append(card.value)
-        return cards
-
     def showHandByColor(self):
         cards = collections.defaultdict(list)
         for card in self.hand:
@@ -39,6 +33,9 @@ class Player:
 
     def getScore(self):
         return self.rule.getScore(self.hand)
+
+    def __str__(self):
+        return '{}: {}, Score: {}'.format(self.name, self.showHandByColor(), self.getScore())
 
 if __name__ == "__main__":
     deck = Deck()
