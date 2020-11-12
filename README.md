@@ -1,6 +1,8 @@
 ## Welcome to "Card Game"  
 
-It's a simple card game with 2 players. Each card has a color (red, yellow or green) and number. Players will draw 3 cards by taking turns. Whoever has the high score wins the game. (color point calculation, red = 3, yellow =2, green = 1) the point is calculated by color point * number in the card.  
+It's a simple card game with a few players. Each card has a color (red, yellow or green) and number. Players will draw some cards by turn. Whoever has the high score wins the game. (color point calculation, red = 3, yellow =2, green = 1) the point is calculated by color point * number in the card.  
+
+The number of players, number of drawing cards, card max value (number), colors with points are configuable thru config.py  
 
 Classes defined
 Card:   with color and value (number) attributes, defined in card.py  
